@@ -18,4 +18,16 @@ class Product extends Model
         'type',
         'product_api_url',
     ];
+
+    protected static function booted()
+    {
+        static::creating(function ($product) {
+            $lastProduct = static::query()->orderBy('id', 'desc')->first();
+            if ($lastProduct) {
+                $product->sku = 'PROD-' . str_pad($lastProduct->getKey() + 1, 4, '0', STR_PAD_LEFT);
+            } else {
+                $product->sku = 'PROD-0001';
+            }
+        });
+    }
 }

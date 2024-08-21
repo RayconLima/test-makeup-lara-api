@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->double('price', 8, 2);
             $table->string('type');
+            $table->string('sku');
             $table->string('product_api_url');
             $table->timestamps();
         });
