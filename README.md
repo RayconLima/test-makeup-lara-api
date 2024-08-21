@@ -15,8 +15,8 @@ Antes de começar a usar este projeto, é necessário ter o seguinte configurado
 - [MakeUp Api](https://makeup-api.herokuapp.com/)
 
 ## Atividades
-- [ ]  - Consultar dados de uma api pública
-- [ ]  - Desenvolver uma função automatizada para salvar os dados da api externa ao banco de dados
+- [x]  - Consultar dados de uma api pública
+- [x]  - Desenvolver uma função automatizada para salvar os dados da api externa ao banco de dados
 - [ ]  - Desenvolver testes de integração
 
 ## Instalação
