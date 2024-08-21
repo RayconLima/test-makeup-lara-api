@@ -26,7 +26,5 @@ class MakeupApiService
         }
 
         return $products;
-
-        // return json_decode(file_get_contents($api));
     }
 }

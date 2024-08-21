@@ -15,9 +15,23 @@ class ProductController extends Controller
     public function __construct(protected MakeupApiService $productExternalService)
     {}
 
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::paginate();
+        $products = Product::query()
+            ->when($request->name, function ($query) use ($request) {
+                $query->where('name', 'LIKE', "%{$request->name}%");
+            })
+            ->when($request->brand, function ($query) use ($request) {
+                $query->where('brand', 'LIKE', "%{$request->brand}%");
+            })
+            ->when($request->category, function ($query) use ($request) {
+                $query->where('category', 'LIKE', "%{$request->category}%");
+            })
+            ->when($request->type, function ($query) use ($request) {
+                $query->where('type', 'LIKE', "%{$request->type}%");
+            })
+            ->paginate();
+
         return ProductResource::collection($products);
     }
 
@@ -38,7 +52,7 @@ class ProductController extends Controller
         $product->delete();
     }
 
-    public function getProducts(Request $request)
+    public function getProductsByMakeupApi(Request $request)
     {
         $products = $this->productExternalService->getProducts();
         $products = $this->paginate($products, 3);
