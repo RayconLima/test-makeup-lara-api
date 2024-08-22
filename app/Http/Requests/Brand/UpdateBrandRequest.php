@@ -4,7 +4,7 @@ namespace App\Http\Requests\Brand;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateBrandRequest extends FormRequest
+class UpdateBrandRequest extends StoreBrandRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,8 +21,7 @@ class UpdateBrandRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'name' => 'required|string|max:255',
-        ];
+        $rules = parent::rules();
+        return $rules;
     }
 }

@@ -11,13 +11,29 @@ class Product extends Model
 
     protected $fillable = [
         'name',
-        'brand',
-        'category',
+        'brand_id',
+        'type_id',
+        'category_id',
         'description',
         'price',
-        'type',
+        'count_in_stock',
         'product_api_url',
     ];
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
+    
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
 
     protected static function booted()
     {

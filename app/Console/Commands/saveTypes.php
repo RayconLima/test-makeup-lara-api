@@ -30,12 +30,12 @@ class saveTypes extends Command
         $api = config('app.EXTERNAL_API').'/products.json';
         $productsData = json_decode(file_get_contents($api), true);
         
-        $brands = [];
+        $types = [];
         foreach ($productsData as $product) {
-            $brands[] = $product['product_type'];
+            $types[] = $product['product_type'];
         }
 
-        $uniqueBrands = array_values(array_unique($brands));
+        $uniqueBrands = array_values(array_unique($types));
         foreach ($uniqueBrands as $value) {
             if ($value != null) {
                 $brand = new Type();

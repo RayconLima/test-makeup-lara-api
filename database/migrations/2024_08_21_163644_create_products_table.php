@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(App\Models\Brand::class)->nullable();
+            $table->foreignIdFor(App\Models\Category::class)->nullable();
+            $table->foreignIdFor(App\Models\Type::class)->nullable();
             $table->string('name');
-            $table->string('brand');
-            $table->string('category');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->double('price', 8, 2);
-            $table->string('type');
             $table->string('sku');
             $table->string('product_api_url');
+            $table->integer('count_in_stock')->default(0);
             $table->timestamps();
         });
     }

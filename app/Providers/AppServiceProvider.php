@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Models\{Brand, Type};
-use App\Observers\{BrandObserver, TypeObserver};
+use App\Models\{Brand, Category, Type};
+use App\Observers\{BrandObserver, CategoryObserver, TypeObserver};
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,5 +23,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Brand::observe(BrandObserver::class);
         Type::observe(TypeObserver::class);
+        Category::observe(CategoryObserver::class);
     }
 }

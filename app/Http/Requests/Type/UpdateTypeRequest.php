@@ -4,7 +4,7 @@ namespace App\Http\Requests\Type;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateTypeRequest extends FormRequest
+class UpdateTypeRequest extends StoreTypeRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,8 +21,7 @@ class UpdateTypeRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'name' => 'required|string|max:255',
-        ];
+        $rules = parent::rules();
+        return $rules;
     }
 }
