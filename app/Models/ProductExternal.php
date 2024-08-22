@@ -17,6 +17,7 @@ class ProductExternal extends Model
         'price',
         'price_sign',
         'product_type',
+        'image_link',
         'product_api_url',
     ];
 

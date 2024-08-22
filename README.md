@@ -14,8 +14,17 @@ Antes de começar a usar este projeto, é necessário ter o seguinte configurado
 - Docker e Docker-Compose
 - [MakeUp Api](https://makeup-api.herokuapp.com/)
 
+## Funcionalidades
+- Produtos
+- Tipos de produto
+- Categoria de produto
+- Marcas
+
 ## Atividades
 - [x]  - Consultar dados de uma api pública
+- [x]  - Importação de produtos, marcas e categorias
+- [x]  - Importação de marcas
+- [x]  - Importação de categorias
 - [x]  - Desenvolver uma função automatizada para salvar os dados da api externa ao banco de dados
 - [ ]  - Desenvolver testes de integração
 
