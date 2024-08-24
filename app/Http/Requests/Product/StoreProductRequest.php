@@ -24,10 +24,10 @@ class StoreProductRequest extends FormRequest
         return [
             'name' => ['required', 'string'],
             'brand_id' => ['required', 'numeric'],
-            'category' => ['required', 'string'],
+            'category_id' => ['required', 'numeric'],
+            'type_id' => ['required', 'numeric'],
             'description' => ['nullable', 'string'],
             'price' => ['required', 'numeric'],
-            'type' => ['required', 'string'],
             'product_api_url' => ['required', 'string'],
         ];
     }

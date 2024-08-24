@@ -35,6 +35,11 @@ class Product extends Model
         return $this->belongsTo(Type::class);
     }
 
+    public function itemSales()
+    {
+        return $this->hasMany(ItemSale::class);
+    }
+
     protected static function booted()
     {
         static::creating(function ($product) {
