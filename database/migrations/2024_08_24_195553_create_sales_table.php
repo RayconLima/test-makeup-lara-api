@@ -1,8 +1,8 @@
-
 <?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -12,13 +12,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('item_sales', function (Blueprint $table) {
+        Schema::create('sales', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(App\Models\Sale::class);
-            $table->foreignIdFor(App\Models\Product::class);
-            $table->integer('quantity')->default(0);
-            $table->double('unit_price')->default(0);
-            $table->double('amount')->default(0);
+            $table->foreignId('client_id')->constrained()->onDelete('cascade');
+            $table->date('date_sale');
+            $table->double('total')->default(0);
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('item_sales');
+        Schema::dropIfExists('sales');
     }
 };
