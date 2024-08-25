@@ -10,11 +10,17 @@ class Sale extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
+        'client_id',
         'total',
         'date_sale',
-        'client_id',
         'price_unit',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function client()
     {
@@ -26,16 +32,17 @@ class Sale extends Model
         return $this->hasMany(ItemSale::class);
     }
 
-    // protected static function booted()
-    // {
-    //     parent::boot();
+    protected static function booted()
+    {
+        parent::boot();
 
-    //     static::creating(function (Sale $sale) {
-    //         dd($sale->itemSale);
-    //     });
+        static::creating(function (Sale $sale) {
+            $sale->user_id  = auth()->user()->id;
+            // $sale->total    = $sale->items->sum('amount');
+        });
         
-    //     static::updating(function (Sale $sale) {
-
-    //     });
-    // }
+        static::updating(function (Sale $sale) {
+            $sale->user_id = auth()->user()->id;            
+        });
+    }
 }

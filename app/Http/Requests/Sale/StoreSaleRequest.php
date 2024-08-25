@@ -22,11 +22,11 @@ class StoreSaleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'date_sale' => ['required','date'],
-            'client_id' => ['required', 'numeric'],
-            'items.*.product_id' => ['required', 'numeric'],
-            'items.*.quantity' => ['required', 'numeric'],
-            'items.*.unit_price' => ['required', 'numeric'],
+            'date_sale'             => ['required','date'],
+            'client_id'             => ['required', 'numeric'],
+            'items.*.product_id'    => ['required', 'numeric'],
+            'items.*.quantity'      => ['required', 'numeric'],
+            'items.*.unit_price'    => ['required', 'numeric'],
         ];
     }
 }

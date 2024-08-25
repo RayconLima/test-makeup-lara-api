@@ -17,6 +17,7 @@ class SaleResource extends JsonResource
         return [
             'total'         =>  $this->total,
             'date_sale'     =>  $this->date_sale,
+            'user'          =>  UserResource::make($this->user),
             'client'        =>  ClientResource::make($this->client),
             'items'         =>  ItemSaleResource::collection($this->items)
         ];
