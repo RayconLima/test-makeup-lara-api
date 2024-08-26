@@ -26,7 +26,6 @@ Antes de começar a usar este projeto, é necessário ter o seguinte configurado
 - [x]  - Importação de marcas
 - [x]  - Importação de categorias
 - [x]  - Desenvolver uma função automatizada para salvar os dados da api externa ao banco de dados
-- [ ]  - Desenvolver testes de integração
 
 ## Instalação
 

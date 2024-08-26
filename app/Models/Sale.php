@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Sale extends Model
 {
@@ -37,12 +38,11 @@ class Sale extends Model
         parent::boot();
 
         static::creating(function (Sale $sale) {
-            $sale->user_id  = auth()->user()->id;
-            // $sale->total    = $sale->items->sum('amount');
+            $sale->user_id  =   Auth::user()->id;
         });
         
         static::updating(function (Sale $sale) {
-            $sale->user_id = auth()->user()->id;            
+            $sale->user_id  =   Auth::user()->id;            
         });
     }
 }

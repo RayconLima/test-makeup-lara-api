@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\SaleResource;
 use App\Models\{Sale, ItemSale, Product};
-use App\Http\Requests\Sale\{StoreSaleRequest, UpdateSaleRequest};
+use App\Http\Requests\Sale\{StoreSaleRequest};
 
 class SaleController extends Controller
 {
@@ -49,15 +49,8 @@ class SaleController extends Controller
         return SaleResource::make($sale);
     }
 
-    // public function update(Sale $sale, UpdateSaleRequest $request)
-    // {
-    //     $input  = $request->validated();
-    //     $sale->update($input);
-    //     return SaleResource::make($sale);
-    // }
-
-    // public function destroy(Sale $sale)
-    // {
-    //     $sale->delete();
-    // }
+    public function destroy(Sale $sale)
+    {
+        $sale->delete();
+    }
 }
