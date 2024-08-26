@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\{Category, Brand, Type};
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +12,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        $this->call(UserSeeder::class);        
+        Category::Create(['name' => 'nova categoria']);
+        Brand::Create(['name' => 'nova marca']);
+        Type::Create(['name' => 'novo tipo']);
     }
 }
